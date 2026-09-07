@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'" />
+    <title>AI Interview Assistant</title>
+    <link rel="stylesheet" href="overlay.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="drag-bar">
+        <span id="status-pill">disconnected</span>
+        <div id="controls">
+          <button id="btn-setup" type="button">Setup</button>
+          <button id="btn-history" type="button">History</button>
+          <button id="btn-settings" type="button">Settings</button>
+          <button id="btn-hide" type="button">Hide</button>
+        </div>
+      </div>
+      <div id="key-banner" hidden>Add GROQ_API_KEY or GEMINI_API_KEY to .env and restart.</div>
+      <div id="warn-banner" hidden></div>
+      <div id="error-banner" hidden>
+        <span id="error-text"></span>
+        <button id="btn-dismiss" type="button">Dismiss</button>
+      </div>
+      <section class="question-block">
+        <h2>Question</h2>
+        <div id="question" class="panel"></div>
+      </section>
+      <section class="answer-block">
+        <h2>Answer</h2>
+        <div id="answer" class="panel"></div>
+      </section>
+    </div>
+    <script src="overlayStore.js"></script>
+    <script src="overlay.js"></script>
+  </body>
+</html>

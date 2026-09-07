@@ -1,0 +1,11 @@
+.env
+data/*.wav
+data/*.sqlite
+data/config.json
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+node_modules/
+dist/
+release/

@@ -1,0 +1,14 @@
+appId: com.aia.interviewassistant
+productName: AI Interview Assistant
+files:
+  - "**/*"
+  - "!test/**"
+extraResources:
+  - from: ../dist/aia-backend
+    to: aia-backend
+win:
+  target: nsis
+mac:
+  target: dmg
+directories:
+  output: dist

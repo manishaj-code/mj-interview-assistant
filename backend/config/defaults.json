@@ -1,0 +1,42 @@
+{
+  "llm": {
+    "model": "claude-sonnet-4-6",
+    "max_tokens": 500,
+    "temperature": 0.4,
+    "answer_style": "concise"
+  },
+  "stt": {
+    "engine": "local",
+    "local_model_size": "small",
+    "cloud_provider": null
+  },
+  "question_detection": {
+    "silence_gap_ms": 800,
+    "use_llm_fallback_classifier": true
+  },
+  "context": {
+    "max_history_pairs": 5,
+    "resume_path": null,
+    "job_description": ""
+  },
+  "audio": {
+    "input_device": "system_default_loopback",
+    "sample_rate": 16000,
+    "chunk_ms": 30
+  },
+  "overlay": {
+    "always_on_top": true,
+    "content_protection": true,
+    "opacity": 0.92,
+    "hotkey_toggle_visibility": "CommandOrControl+Shift+H",
+    "hotkey_panic_hide": "CommandOrControl+Shift+Escape"
+  },
+  "storage": {
+    "session_history_enabled": true,
+    "session_history_path": "./data/sessions.sqlite"
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8765
+  }
+}

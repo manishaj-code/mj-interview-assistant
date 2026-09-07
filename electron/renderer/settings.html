@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <title>Settings</title>
+    <style>
+      body { font-family: "Segoe UI", system-ui, sans-serif; margin: 0; background: #f4f4f7; color: #1b1b1f; }
+      header, form { padding: 16px 20px; }
+      h1 { font-size: 18px; margin: 0 0 8px; }
+      fieldset { border: 1px solid #d0d0d8; margin: 0 0 12px; padding: 10px 12px; }
+      label { display: block; font-size: 12px; font-weight: 600; margin: 8px 0 4px; }
+      input, select { width: 100%; box-sizing: border-box; padding: 6px; }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      #toast, #error, #hotkey-warning { margin: 0 20px 8px; padding: 8px 12px; font-size: 13px; }
+      #toast { background: #1f6b3a; color: #fff; }
+      #error, #hotkey-warning { background: #6b2a12; color: #fff; }
+      #toast[hidden], #error:empty, #hotkey-warning:empty { display: none; }
+      button[type="submit"] { margin-top: 8px; padding: 8px 14px; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <header><h1>Settings</h1></header>
+    <div id="toast" hidden>Saved</div>
+    <div id="error"></div>
+    <div id="hotkey-warning"></div>
+    <form id="form">
+      <fieldset>
+        <legend>LLM</legend>
+        <label>Model <input id="llm-model" name="model" /></label>
+        <div class="row">
+          <label>Max tokens <input id="llm-max-tokens" type="number" min="50" max="1500" /></label>
+          <label>Temperature <input id="llm-temperature" type="number" min="0" max="1" step="0.1" /></label>
+        </div>
+        <label>Answer style
+          <select id="llm-style">
+            <option value="concise">concise</option>
+            <option value="detailed">detailed</option>
+            <option value="star_format">star_format</option>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>STT</legend>
+        <label>Engine
+          <select id="stt-engine">
+            <option value="local">local</option>
+            <option value="cloud">cloud</option>
+          </select>
+        </label>
+        <label>Local model
+          <select id="stt-model">
+            <option>tiny</option>
+            <option>base</option>
+            <option>small</option>
+            <option>medium</option>
+            <option>large-v3</option>
+          </select>
+        </label>
+        <label>Cloud provider
+          <select id="stt-cloud">
+            <option value="">none</option>
+            <option value="deepgram">deepgram</option>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Detection</legend>
+        <label>Silence gap ms <input id="silence-gap" type="number" min="200" max="3000" /></label>
+        <label><input id="llm-fallback" type="checkbox" /> Use LLM fallback classifier</label>
+      </fieldset>
+      <fieldset>
+        <legend>Audio</legend>
+        <label>Input device <select id="audio-device"></select></label>
+        <label>Sample rate <input id="sample-rate" value="16000" disabled /></label>
+        <label>Chunk ms
+          <select id="chunk-ms">
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Overlay</legend>
+        <label><input id="always-on-top" type="checkbox" /> Always on top</label>
+        <label><input id="content-protection" type="checkbox" /> Content protection</label>
+        <label>Opacity <input id="opacity" type="number" min="0.4" max="1" step="0.01" /></label>
+        <label>Toggle hotkey <input id="hotkey-toggle" readonly /></label>
+        <label>Panic hotkey <input id="hotkey-panic" readonly /></label>
+      </fieldset>
+      <fieldset>
+        <legend>Storage</legend>
+        <label><input id="history-enabled" type="checkbox" /> Session history enabled</label>
+      </fieldset>
+      <button type="submit">Save</button>
+    </form>
+    <script src="settings.js"></script>
+  </body>
+</html>

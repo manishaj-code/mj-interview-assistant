@@ -1,0 +1,137 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: transparent;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #f2f2f5;
+  user-select: none;
+}
+
+#app {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: rgba(16, 16, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+#drag-bar {
+  height: 28px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  -webkit-app-region: drag;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+#controls {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  overflow: hidden;
+}
+
+#controls button,
+#btn-dismiss {
+  -webkit-app-region: no-drag;
+  background: #2a2a32;
+  color: #f2f2f5;
+  border: 1px solid #4a4a55;
+  border-radius: 3px;
+  font-size: 11px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+#controls button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+#status-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #3a3a44;
+  text-transform: lowercase;
+}
+
+#status-pill.listening {
+  background: #1f6b3a;
+}
+
+#status-pill.error,
+#status-pill.disconnected {
+  background: #7a2d2d;
+}
+
+#key-banner,
+#warn-banner,
+#error-banner {
+  background: #6b2a12;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+#key-banner[hidden],
+#warn-banner[hidden],
+#error-banner[hidden] {
+  display: none;
+}
+
+section {
+  padding: 6px 8px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.question-block {
+  flex: 0 0 auto;
+}
+
+.answer-block {
+  flex: 1;
+  padding-bottom: 8px;
+}
+
+h2 {
+  margin: 0 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #c4c4cc;
+}
+
+.panel {
+  overflow: auto;
+  font-size: 13px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  user-select: text;
+}
+
+#question {
+  max-height: 4.2em;
+  font-size: 13px;
+}
+
+#answer {
+  flex: 1;
+  min-height: 0;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #ffffff;
+}

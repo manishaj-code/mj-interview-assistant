@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <title>Setup</title>
+    <style>
+      body {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        margin: 0;
+        color: #1b1b1f;
+        background: #f4f4f7;
+      }
+      header,
+      main {
+        padding: 16px 20px;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0 0 8px;
+      }
+      #key-banner,
+      #error {
+        background: #6b2a12;
+        color: #fff;
+        padding: 8px 12px;
+        margin: 0 20px 12px;
+        font-size: 13px;
+      }
+      #key-banner[hidden],
+      #error:empty,
+      #toast[hidden] {
+        display: none;
+      }
+      #toast {
+        background: #1f6b3a;
+        color: #fff;
+        padding: 8px 12px;
+        margin: 0 20px 12px;
+        font-size: 13px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 12px 0 6px;
+      }
+      textarea,
+      #resume-preview {
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 96px;
+        border: 1px solid #c8c8d0;
+        border-radius: 4px;
+        padding: 8px;
+        background: #fff;
+        white-space: pre-wrap;
+      }
+      #resume-meta {
+        font-size: 12px;
+        color: #555;
+        margin-top: 4px;
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      button {
+        padding: 6px 12px;
+        cursor: pointer;
+      }
+      #btn-continue {
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Setup</h1>
+    </header>
+    <div id="key-banner" hidden>Add GROQ_API_KEY or GEMINI_API_KEY to .env and restart.</div>
+    <div id="toast" hidden>Saved</div>
+    <div id="error"></div>
+    <main>
+      <div>
+        <button id="btn-upload" type="button">Upload resume</button>
+        <div id="resume-meta">Resume characters: <span id="resume-chars">0</span></div>
+        <label for="resume-preview">Resume preview</label>
+        <div id="resume-preview"></div>
+      </div>
+      <label for="jd">Job description</label>
+      <textarea id="jd" rows="6"></textarea>
+      <div class="actions">
+        <button id="btn-save" type="button">Save JD</button>
+        <button id="btn-continue" type="button">Continue to overlay</button>
+      </div>
+    </main>
+    <script src="setup.js"></script>
+  </body>
+</html>

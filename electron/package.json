@@ -1,0 +1,17 @@
+{
+  "name": "ai-interview-assistant",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/overlayStore.test.js test/reconnect.test.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1"
+  }
+}
